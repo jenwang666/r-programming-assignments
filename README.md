@@ -40,3 +40,23 @@ hist(freq,main = "Histogram of Frequency",xlab = "Frequency",ylab = "Count",col 
 hist(bloodp,main = "Histogram of Blood Pressure",xlab = "Blood Pressure (mmHg)",ylab = "Count",col = "lightgreen",breaks = 3)
 
 
+#Assignemnt 7
+head(mtcars)
+str(mtcars)
+summary(mtcars)
+print(mtcars)
+plot(mtcars)
+
+
+s3_obj <- list(name = "Myself", age = 29, GPA = 3.5)
+class(s3_obj) <- "student_s3"
+print(s3_obj)
+summary(s3_obj)
+
+
+setClass("student_s4",
+         slots = c(name = "character", age = "numeric", GPA = "numeric"))
+s4_obj <- new("student_s4", name = "Myself", age = 29, GPA = 3.5)
+print(s4_obj)
+summary(s4_obj)
+
