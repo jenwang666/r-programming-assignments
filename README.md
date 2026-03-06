@@ -60,3 +60,39 @@ s4_obj <- new("student_s4", name = "Myself", age = 29, GPA = 3.5)
 print(s4_obj)
 summary(s4_obj)
 
+#Assignment 9
+student6 <- read.table(file.choose(), header = TRUE, sep=",")
+student6
+
+library(plyr)
+gender_mean <- ddply(
+  student6,
+  "Sex",
+  summarise,
+  GradeAverage = mean(Grade, na.rm = TRUE)
+)
+gender_mean
+
+write.table(
+  gender_mean,
+  file = "gender_mean.txt",
+  sep  = "\t",
+  row.names = FALSE
+)
+
+i_students <- subset(
+  student6,
+  grepl("i", Name, ignore.case = TRUE)
+)
+
+write.csv(
+  i_students$Name,
+  file      = "i_students.csv",
+  row.names = FALSE,
+  quote     = FALSE
+)
+write.csv(
+  i_students,
+  file      = "i_students_full.csv",
+  row.names = FALSE
+)
